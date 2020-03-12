@@ -1,24 +1,21 @@
 # uu-vue-components-repository
 
-## Project setup
-```
-npm install
-```
+自己的vue组件库
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### 1. vue组件目录
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- 日历
+- 组件树
+- 图片裁剪
+- 实时天气
+  - 天气的API接口：和风天气 [和风天气常规天气数据API文档](https://dev.heweather.com/docs/api/weather)
+  - 使用axios获取网络接口数据
+
+
+
+
+
+
+
