@@ -1,7 +1,11 @@
 <template>
   <div id="nav-bar">
     <div class="left">
-      <slot name="left"></slot>
+      <slot name="left">
+        <div class="back" @click="backClick">
+          <img src="~assets/img/back.svg" alt />
+        </div>
+      </slot>
     </div>
     <div class="center">
       <slot name="center"></slot>
@@ -14,7 +18,12 @@
 
 <script>
 export default {
-  name: 'NavBar',
+  name: "NavBar",
+  methods: {
+    backClick() {
+      this.$router.go(-1)
+    }
+  }
 }
 </script>
 
@@ -40,5 +49,10 @@ export default {
 .center {
   flex: 1;
   text-align: center;
+}
+
+.back img {
+  margin-top: 11px;
+  margin-left: 16px;
 }
 </style>

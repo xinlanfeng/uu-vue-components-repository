@@ -1,6 +1,9 @@
 <template>
   <div>
     <nav-bar class="menu-nav">
+      <template v-slot:left>
+        <div></div>
+      </template>
       <template v-slot:center>
         <div>菜单</div>
       </template>
@@ -9,8 +12,8 @@
       <tab-bar-item path="/calendar">
         <div>日历</div>
       </tab-bar-item>
-      <tab-bar-item>
-        <div>组件树</div>
+      <tab-bar-item path="/tree">
+        <div>树形组件</div>
       </tab-bar-item>
       <tab-bar-item>
         <div>剪裁图片</div>

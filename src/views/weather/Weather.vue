@@ -8,7 +8,7 @@
           class="search-bar"
           placeholder="请输入要查询天气的城市"
           v-model="query"
-          @keyup.enter="getWeather"
+          @keyup.enter="getWeatherInfo"
         />
       </div>
 
@@ -30,7 +30,7 @@
 <script>
 import WeatherNavBar from './WeatherNavBar'
 
-import axios from 'axios'
+import { getWeather } from 'network'
 
 export default {
   name: 'Weather',
@@ -39,8 +39,6 @@ export default {
   },
   data() {
     return {
-      api_key: 'bd1a6d8c0c0d4ebe9744fd4bd61e36b2',
-      base_url: 'https://free-api.heweather.net/s6/weather/now',
       query: '',
       location: '',
       temp: '',
@@ -58,17 +56,15 @@ export default {
     },
   },
   methods: {
-    getWeather() {
-      axios
-        .get(`${this.base_url}?location=${this.query}&key=${this.api_key}`)
-        .then(res => {
-          // console.log(res)
-          res = res.data.HeWeather6[0]
-          this.location = res.basic.location
-          this.temp = res.now.tmp
-          this.weather = res.now.cond_txt
-          this.isShowWeather = !this.isShowWeather
-        })
+    getWeatherInfo() {
+      getWeather(this.query).then(res => {
+        // console.log(res)
+        res = res.data.HeWeather6[0]
+        this.location = res.basic.location
+        this.temp = res.now.tmp
+        this.weather = res.now.cond_txt
+        this.isShowWeather = true
+      })
     },
   },
 }
@@ -85,7 +81,7 @@ export default {
   font-family: '微软雅黑';
 }
 main {
-  min-height: 100vh;
+  min-height: 93.3vh;
   padding: 25px;
 }
 .search-box {
